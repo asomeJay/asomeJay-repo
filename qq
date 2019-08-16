@@ -1,0 +1,151 @@
+[33mcommit a4fb8594a970e3af31c9fd935279b376ac508983[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: asomeJay <museum114@naver.com>
+Date:   Thu Aug 15 14:44:16 2019 +0900
+
+    BaekJoon
+
+[33mcommit 1063205b0bf6f2bd324089a27b4fe6ca69d9cd39[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: asomeJay <museum114@naver.com>
+Date:   Sun Aug 11 21:10:24 2019 +0900
+
+    delete .idea/ folders, files'
+
+[33mcommit e8f8f9b7d855f58beeef2e02fdd2466651841416[m
+Merge: 918502f 68d0904
+Author: asomeJay <museum114@naver.com>
+Date:   Sun Aug 11 21:03:49 2019 +0900
+
+    Merge branch 'master' of https://github.com/asomeJay/asomeJay
+
+[33mcommit 918502f048c2959e8b9e5cdca4edf5e8292489e5[m
+Author: asomeJay <museum114@naver.com>
+Date:   Sun Aug 11 21:01:01 2019 +0900
+
+    add ignore file config
+
+[33mcommit fb2a5b7f6f315efdb9626df68e6c9a7c02f273f8[m
+Author: asomeJay <museum114@naver.com>
+Date:   Sun Aug 11 20:56:57 2019 +0900
+
+    add ignore file config
+
+[33mcommit 68d09041805a5fa85d4ddc3b802e8ff1a9725f6f[m
+Author: asomeJay <45970468+asomeJay@users.noreply.github.com>
+Date:   Sun Aug 11 20:54:20 2019 +0900
+
+    Update Readme.md
+
+[33mcommit ef9e0160a8fb5571f0407dee0f41b363bd9a1c74[m
+Author: asomeJay <museum114@naver.com>
+Date:   Sun Aug 11 20:53:08 2019 +0900
+
+    GO
+
+[33mcommit 0df5d2512c9ea182eb302af46a3268d494c1446d[m
+Author: asomeJay <museum114@naver.com>
+Date:   Sun Aug 11 20:52:40 2019 +0900
+
+    GO
+
+[33mcommit 41213de8a9591699b9a8d81da63bb0833ba1298f[m
+Author: asomeJay <museum114@naver.com>
+Date:   Sat Aug 10 22:27:49 2019 +0900
+
+    Readme.md`
+
+[33mcommit 4f9a518cfb082edce26027badc0820fab868739c[m
+Author: asomeJay <museum114@naver.com>
+Date:   Sat Aug 10 22:22:48 2019 +0900
+
+    Let's go
+
+[33mcommit fb17fde319b55d42160051180b0a704753d6bc5b[m
+Author: asomeJay <museum114@naver.com>
+Date:   Sat Aug 10 22:10:17 2019 +0900
+
+    오직 두 사람
+
+[33mcommit 7e9d198783922b290bb4cdbe997a2f023ac4dd63[m
+Author: asomeJay <museum114@naver.com>
+Date:   Sat Aug 10 22:08:24 2019 +0900
+
+    오직 두 사람 독후감
+
+[33mcommit 60b87b3ce2a3f88a38ce3030b81b73dec42ef86f[m
+Author: asomeJay <museum114@naver.com>
+Date:   Sat Aug 10 21:04:23 2019 +0900
+
+    Let's go
+
+[33mcommit 144d0d4b6abacd9a7d73a7c489cd53898afad5b3[m
+Author: asomeJay <museum114@naver.com>
+Date:   Sat Aug 10 20:37:23 2019 +0900
+
+    :
+
+[33mcommit ac57dbcc276a53d6113f539b7a4b38add9e01e33[m
+Merge: 4f478be 234ffe5
+Author: asomeJay <museum114@naver.com>
+Date:   Sat Aug 10 20:23:18 2019 +0900
+
+    I maket Merge branch 'master' of https://github.com/asomeJay/asomeJay
+
+[33mcommit 4f478bea9843e3bad016f14b315fc0372dd8029b[m
+Author: asomeJay <museum114@naver.com>
+Date:   Sat Aug 10 17:55:27 2019 +0900
+
+    Pratice Exam
+
+[33mcommit 8a012aba490d7f0a51a36004b916ded857aae35c[m
+Author: asomeJay <museum114@naver.com>
+Date:   Sat Aug 10 15:09:48 2019 +0900
+
+    We got simple.py
+
+[33mcommit 234ffe57121646a28de613b66dbb0f7bce80779b[m
+Author: asomeJay <museum114@naver.com>
+Date:   Sat Feb 9 21:20:02 2019 +0900
+
+    lotto.txt.
+
+[33mcommit 098abd4c4d049c419c144a49fa2bbb0bceca4547[m
+Author: asomeJay <museum114@naver.com>
+Date:   Wed Feb 6 15:58:40 2019 +0900
+
+    auto vs handy, auto win!
+
+[33mcommit 99e7999251e0bbb7f76613208068991228db0d7f[m
+Author: asomeJay <museum114@naver.com>
+Date:   Fri Feb 1 15:28:23 2019 +0900
+
+    middle_to_postfix
+
+[33mcommit 3fde7991e5bb3ad59fc5bf62de22351b5e175e4f[m
+Author: asomeJay <museum114@naver.com>
+Date:   Fri Feb 1 15:28:01 2019 +0900
+
+    bj9012
+
+[33mcommit 3911ec028501805f0d672fe21db9c6f82200d86a[m
+Author: asomeJay <museum114@naver.com>
+Date:   Fri Feb 1 15:27:45 2019 +0900
+
+    bj1874
+
+[33mcommit 2a3581f10395dfde731e10b562e47203950e9807[m
+Author: asomeJay <museum114@naver.com>
+Date:   Fri Feb 1 15:27:25 2019 +0900
+
+    bj10845
+
+[33mcommit 782d795daa3a8d230055190f412e034baff74380[m
+Author: asomeJay <museum114@naver.com>
+Date:   Tue Jan 22 10:57:00 2019 +0900
+
+    baekjoon
+
+[33mcommit 8481e799e8901d9f76422648f6840b6e1b06dca9[m
+Author: asomeJay <museum114@naver.com>
+Date:   Fri Jan 11 10:05:23 2019 +0900
+
+    first file
