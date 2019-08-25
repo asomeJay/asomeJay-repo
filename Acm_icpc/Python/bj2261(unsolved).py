@@ -1,13 +1,12 @@
 from operator import itemgetter
-import sys
-import math
+from math import sqrt, ceil, floor
+
 
 def file_read(file_name, close_name):
     print('file_read start')
     f = open(file_name, "r")
     p = f.readlines()
     f.close()
-    count = 0
     coordinate_list = []
     for i in p[1:]:
         t = i.split()
@@ -23,7 +22,6 @@ def file_read(file_name, close_name):
 
 
 def input_read():
-    print("input_read start")
     how_many = int(input())
     coordinate_system = []
 
@@ -31,43 +29,41 @@ def input_read():
         coordinate_system.append(list(map(int, input().split())))
 
     coordinate_system.sort(key=itemgetter(0))
-    print(int(shorted_distance(coordinate_system)) ** 2)
+    print(shorted_distance(coordinate_system))
 
 
 def distance(x1, y1, x2, y2):
-    a = math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
-    #if a == 0:
-    #    return sys.maxsize
+    a = ((x2 - x1) ** 2 + (y2 - y1) ** 2)
     return a
 
 
 def shorted_distance(system):
-    mini = sys.maxsize
     length = len(system)
-    last_index = length - 1
-    if length % 2 != 0:
-        dividing_line = system[int(length/2)][0]
-    else:
-        temp = math.floor(length / 2)
-        dividing_line = (system[temp-1][0] + system[temp][0]) / 2     # Left-side가 더 많다.
 
-    if len(system) == 2:
+    if length == 2:
         return distance(system[0][0], system[0][1], system[1][0], system[1][1])
 
-    if len(system) == 3:
+    if length == 3:
         return min(distance(system[0][0], system[0][1], system[1][0], system[1][1]),
                    distance(system[0][0], system[0][1], system[2][0], system[2][1]),
                    distance(system[1][0], system[1][1], system[2][0], system[2][1]))
-
-    left_side = system[:math.ceil((length / 2.0))]
-    right_side = system[math.ceil((length / 2.0)):]
+    temp = floor(length/2)
+    if length % 2 != 0:
+        dividing_line = system[temp][0]
+        left_side = system[:temp + 1]
+        right_side = system[temp + 1:]
+    else:
+        dividing_line = (system[temp-1][0] + system[temp][0]) / 2     # Left-side가 더 많다.
+        left_side = system[:temp]
+        right_side = system[temp:]
 
     temp_distance = min(shorted_distance(left_side), shorted_distance(right_side))
-    boundary = [dividing_line - temp_distance, dividing_line + temp_distance]
 
     penetrate = []
     for i in range(length):
-        if abs(dividing_line - system[i][0]) < temp_distance:
+        if system[i][0] - dividing_line > temp_distance:
+            break
+        if abs(system[i][0] - dividing_line) < temp_distance:
             penetrate.append(system[i])
     penetrate.sort(key=itemgetter(1))  # y축 기준으로 정렬
 
@@ -83,7 +79,7 @@ def shorted_distance(system):
             if temp_distance > mini:
                 temp_distance = mini
 
-    return min(temp_distance, mini)
+    return temp_distance
 
-file_read("2.in", "2.out")
-#input_read()
+#file_read("5620.in6", "5620.out6")
+input_read()
