@@ -1,2 +1,40 @@
+<<<<<<< HEAD
 node_modules/
 package-lock.json
+=======
+.idea/
+.git/
+book/
+.vs/
+Debug/
+.sln
+*.vcxproj.*
+.spec
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.o
+*.so
+ 
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+*.exe
+# Logs and databases #
+######################
+*.sqlite
+
+*.xml
+*.iml
+>>>>>>> b870c5b540e473a40d27f1c5ab888b0dbac12468
