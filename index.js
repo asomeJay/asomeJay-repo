@@ -2,8 +2,8 @@ const http = require('http');
 
 const port = 3000;
 
-http.createServer(function(request, response) {
-    console.log('요청 수신.');
+http.createServer((request, response) => {
+    console.log('Request received.');
     
     response.writeHead(200, {'Content-Type': 'text/html'});
     response.write('Hello Git!');
@@ -11,4 +11,4 @@ http.createServer(function(request, response) {
     
 }).listen(port);
 
-console.log(`서버 시작 - 포트:${port}`);
+console.log(`Server has stared - port:${port}`);
