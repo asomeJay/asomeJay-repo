@@ -25,7 +25,8 @@ Debug/
 *.jar
 *.rar
 *.tar
-*.zip 
+*.zip
+*.exe
 # Logs and databases #
 ######################
 *.sqlite
