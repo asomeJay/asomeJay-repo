@@ -6,6 +6,15 @@ Debug/
 .sln
 *.vcxproj.*
 .spec
+.db
+.ilk
+.pdb
+.tlog
+.idb
+.pdb
+.filters
+.vcxproj
+
 # Compiled source #
 ###################
 *.com
