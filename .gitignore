@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+node_modules/
+package-lock.json
+=======
 .idea/
 .git/
 book/
@@ -42,3 +46,4 @@ Debug/
 
 *.xml
 *.iml
+>>>>>>> b870c5b540e473a40d27f1c5ab888b0dbac12468
