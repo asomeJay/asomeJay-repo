@@ -14,6 +14,7 @@ Debug/
 .pdb
 .filters
 .vcxproj
+
 # Compiled source #
 ###################
 *.com
@@ -21,7 +22,7 @@ Debug/
 *.dll
 *.o
 *.so
- 
+ .vscode/
 # Packages #
 ############
 # it's better to unpack these files and commit the raw source
