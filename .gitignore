@@ -14,7 +14,7 @@ Debug/
 .pdb
 .filters
 .vcxproj
-
+.vscode/
 # Compiled source #
 ###################
 *.com
