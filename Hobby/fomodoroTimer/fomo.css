@@ -1,0 +1,19 @@
+h1{
+    margin : 0px;
+}
+
+.main{
+    font-size : 100px;
+    padding: 33% 33%;
+    text-align : center;
+    margin : 0px;
+    display:inline;
+}
+
+input{
+    text-align:center;
+    font-size: 30px;
+    padding : 15px 32px;
+    display:inline-block;
+    margin: 0px auto;
+}
