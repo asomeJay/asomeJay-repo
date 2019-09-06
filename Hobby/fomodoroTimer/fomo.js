@@ -1,8 +1,11 @@
 const clockTime = document.querySelector('h1');
 const startClock = document.querySelector('#start');
 const endClock = document.querySelector('#end');
+const pauseClock = document.querySelector('#pause');
 const main = document.querySelector('.main');
 const body = document.querySelector('body');
+
+var overlap = false;
 
 minute = 0;
 seconds = 0;
@@ -26,6 +29,9 @@ function timerBye(){
 }
 
 function stopTimer(){
+    minute = 0;
+    seconds = 0;
+    overlap = false;
     clockTime.innerText = `00 : 00`;
     clearInterval(clicked);
     clockTime.style.color = 'black';
@@ -37,16 +43,20 @@ function getTime(){
         seconds < 10 ? `0${seconds}` : seconds}`
 }
 
-//function init(){
-//    setInterval(getTime, 1000);
-//}
-
 startClock.onclick = function(){
-    clicked = setInterval(getTime,1000);
-    clockTime.style.color = 'white';
-    body.style.backgroundColor = 'black';
+    if (overlap === false){
+        overlap = true;
+        clicked = setInterval(getTime,1000);
+        clockTime.style.color = 'white';
+        body.style.backgroundColor = 'black';
+    }    
 }
 
 endClock.onclick = function(){
     stopTimer();
+}
+
+pauseClock.onclick = function(){
+    clearInterval(clicked);
+    overlap = false;
 }
