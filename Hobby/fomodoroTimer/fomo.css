@@ -1,7 +1,13 @@
 h1{
     margin : 0px;
+    
 }
 
+h5{
+    display:none;
+    margin : 0px;
+    margin-top: 50px;
+}
 .main{
     font-size : 100px;
     padding: 33% 33%;
@@ -10,6 +16,11 @@ h1{
     display:inline;
 }
 
+body{
+    overflow-y : hidden;
+    overflow-x : hidden;
+
+}
 input{
     text-align:center;
     font-size: 30px;

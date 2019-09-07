@@ -4,59 +4,117 @@ const endClock = document.querySelector('#end');
 const pauseClock = document.querySelector('#pause');
 const main = document.querySelector('.main');
 const body = document.querySelector('body');
+const h5 = document.querySelector('h5');
 
+let time = 0;     // work time과 break time을 번갈아가면서?
+const workT = 1;
+const breakT = 1;
 var overlap = false;
+var breakTimerOn = false;
+var minute = 0;
+var seconds = 58;
+var audio = new Audio('break.mp3');
 
-minute = 0;
-seconds = 0;
+function init(){
+    minute = 0;
+    seconds = 58;
+    breakTimerOn = false;
+    overlap = false;
+    h5.style.display = 'none';
+    clockTime.style.color = 'black';
+    body.style.backgroundColor='white';
+    printTimer();
+}
 
-function secondPlus(){
+function secondPlus(objectMinutes){
     seconds++;
 
     if (seconds === 60){
         minute++;
         seconds = 0;
-        
-        if(minute === 25){
+
+        if (minute === objectMinutes){
             timerBye();
         }
     }
 }
 
 function timerBye(){
-    alert('End')
-    stopTimer();
+    clearInterval(clicked);
+
+    if (h5.style.display === 'none'){
+        breakTimerOn = false;
+        audio.play();
+        alert('잠시 쉬자');
+
+        breakTime();
+    }   
+    else if (h5.style.display === 'block'){
+        breakTimerOn = true;
+        overlap = false;
+        audio.play();
+        alert('공부 하자');
+        audio.pause();
+        audio.currentTime = 0;
+        start();
+    }
 }
 
 function stopTimer(){
-    minute = 0;
-    seconds = 0;
-    overlap = false;
-    clockTime.innerText = `00 : 00`;
+    init();
     clearInterval(clicked);
-    clockTime.style.color = 'black';
-    body.style.backgroundColor='white';
 }
+
 function getTime(){
-    secondPlus();
+    secondPlus(time);
+    printTimer();
+}
+
+function timeGo(){
+    clicked = setInterval(getTime, 1000);
+}
+
+function start(){
+    
+    minute = 0;
+    seconds = 58;
+    if (overlap === false){
+        time = workT;
+        timeGo();
+        overlap = true;
+        clockTime.style.color = 'white';
+        body.style.backgroundColor = 'black';
+    }
+}
+
+function pause(){
+    clearInterval(clicked);
+    overlap = false;
+}
+
+function end(){
+    init();
+    clearInterval(clicked);
+    body.style.backgroundColor = 'white';
+    clockTime.innerText = `00 : 00`;
+    clockTime.style.color = 'black';
+}
+
+function breakTime(){
+    init();
+    audio.pause();
+    audio.currentTime = 0;
+    timeGo();
+    h5.style.display = 'block';
+    printTimer();
+}
+
+function printTimer(){
     clockTime.innerText = `${minute < 10 ? `0${minute}` : minute} : ${
         seconds < 10 ? `0${seconds}` : seconds}`
 }
 
-startClock.onclick = function(){
-    if (overlap === false){
-        overlap = true;
-        clicked = setInterval(getTime,1000);
-        clockTime.style.color = 'white';
-        body.style.backgroundColor = 'black';
-    }    
-}
-
-endClock.onclick = function(){
-    stopTimer();
-}
-
-pauseClock.onclick = function(){
-    clearInterval(clicked);
-    overlap = false;
-}
+init();
+startClock.addEventListener('click', start);
+endClock.addEventListener('click', end);
+pauseClock.addEventListener('click', pause);
