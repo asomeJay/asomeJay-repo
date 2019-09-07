@@ -12,12 +12,12 @@ const breakT = 1;
 var overlap = false;
 var breakTimerOn = false;
 var minute = 0;
-var seconds = 58;
-var audio = new Audio('break.mp3');
+var seconds = 0;
+var audio = new Audio('start.mp3');
 
 function init(){
     minute = 0;
-    seconds = 58;
+    seconds = 0;
     breakTimerOn = false;
     overlap = false;
     h5.style.display = 'none';
@@ -56,6 +56,8 @@ function timerBye(){
         alert('공부 하자');
         audio.pause();
         audio.currentTime = 0;
+        minute = 0;
+        seconds = 0;
         start();
     }
 }
@@ -75,10 +77,8 @@ function timeGo(){
 }
 
 function start(){
-    
-    minute = 0;
-    seconds = 58;
     if (overlap === false){
+        h5.style.display = 'none';
         time = workT;
         timeGo();
         overlap = true;
