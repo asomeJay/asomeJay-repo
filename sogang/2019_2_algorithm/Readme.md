@@ -1,17 +1,17 @@
 2019-2 알고리즘 설계와 분석(CSE3081) MP1 보고서
 학번 : 20150038 학과 : 철학과 이름 : 김재원
 
--Experiment environment :
+<b> -Experiment environment : </b>
 O/S : Window10 
 CPU : Intel(R) Core(TM) i5-8265U CPU @ 1.60GHz 1.80GHz
 RAM : 8.00GB
 System : 64bit O/S , x64 based processor
 
-- Experiment setup : 
+<b> - Experiment setup :  </b>
 Input range : -10 ~ 10 (All have same Range)
 행과 열의 수는 아래 표에 제시했다. 측정의 용이성을 위해 행과 열의 수는 5의 배수로 설정했고 50을 넘어가면 알고리즘 간 복잡도 차이가 충분히 크고 O(N^6) 알고리즘의 수행 시간이 너무 길기 때문에 5 ~ 50까지 10회에 걸쳐 실험을 수행했다. 추가로 input size가 두 배씩 늘어날 때 알고리즘 수행 시간에 일어나는 변화를 확인하기위해 80 x 80 matrix도 확인했고 그 결과를 아래에 기재했다. 각 알고리즘을 수행하는 시간의 단위는 miliseconds이다. 
 
-- Your comments on the experience : 
+<b> - Your comments on the experience : </b>
 
 
 Row
