@@ -1,5 +1,5 @@
-<p align="center"><h1>2019-2 알고리즘 설계와 분석(CSE3081) MP1 보고서<h1>
-  <h2>학번 : 20150038 학과 : 철학과 이름 : 김재원<h2></p>
+<p><div align = "center"> <h1>2019-2 알고리즘 설계와 분석(CSE3081) MP1 보고서<h1>
+  <h2>학번 : 20150038 학과 : 철학과 이름 : 김재원<h2></div></p>
 
 <b> -Experiment environment : </b><br>
 O/S : Window10 <br>
