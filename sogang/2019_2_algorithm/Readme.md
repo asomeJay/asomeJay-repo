@@ -1,11 +1,11 @@
 2019-2 알고리즘 설계와 분석(CSE3081) MP1 보고서
 학번 : 20150038 학과 : 철학과 이름 : 김재원
 
-<b> -Experiment environment : </b>
-O/S : Window10 
-CPU : Intel(R) Core(TM) i5-8265U CPU @ 1.60GHz 1.80GHz
-RAM : 8.00GB
-System : 64bit O/S , x64 based processor
+<b> -Experiment environment : </b><br>
+O/S : Window10 <br>
+CPU : Intel(R) Core(TM) i5-8265U CPU @ 1.60GHz 1.80GHz<br>
+RAM : 8.00GB<br>
+System : 64bit O/S , x64 based processor<br>
 
 <b> - Experiment setup :  </b>
 Input range : -10 ~ 10 (All have same Range)
