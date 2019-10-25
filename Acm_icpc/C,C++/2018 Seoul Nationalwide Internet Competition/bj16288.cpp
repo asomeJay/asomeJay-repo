@@ -35,5 +35,4 @@ int main(void) {
 	}
 	cout << "YES";
 	return 0;
-
 }
