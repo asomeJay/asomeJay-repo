@@ -2,7 +2,7 @@
 #include <cmath>
 
 using namespace std;
-//
+
 int main(void) {
 	long long int input, lowerLimit, upperLimit;
 	int n = 1;
