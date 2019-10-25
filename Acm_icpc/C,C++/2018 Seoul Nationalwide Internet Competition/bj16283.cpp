@@ -1,5 +1,5 @@
 #include <iostream>
-
+//
 using namespace std;
 
 void same(int a, int b, int n, int w);
@@ -9,7 +9,7 @@ int main(void) {
 	double S = 0, G = 0;
 	cin >> a >> b >> n >> w;
 
-	same(a, b, n, w);	 //a == b�� ���̽� üũ
+	same(a, b, n, w);	 //a == bÀÎ ÄÉÀÌ½º Ã¼Å©
 
 	double numerator = w - a * n;
 	double denominator = b - a;
