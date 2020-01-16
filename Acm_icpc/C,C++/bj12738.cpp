@@ -24,7 +24,7 @@ int main(void) {
 		}
 	}
 
-	printf("%d\n", longest.size());
+	printf("%d\n", longest.size() - 1);
 	
 	return 0;
 }

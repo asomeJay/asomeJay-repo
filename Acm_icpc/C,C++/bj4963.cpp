@@ -81,7 +81,7 @@ int main(void) {
 			}
 		}
 
-		printf("Land : %d\n", count);
+		printf("%d\n", count);
 
 		fill(&map[0][0], &map[51][52], 0);
 		fill(&is_visit[0][0], &is_visit[51][52], 0);

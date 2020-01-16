@@ -1,105 +1,108 @@
-/* bj7576 : 토마토 */
+/* 토마토 */
 
 #include <iostream>
+#include <algorithm>
+#include <stack>
+
+#define UNRIPE 0
+#define EMPTY -1 
+#define RIPE 1
+#define UNVISIT 0 
+#define VISIT 0
 
 using namespace std;
 
-int zero, day;
+int r, c, day, zero;
 
-void spread(int**, int row_, int col_, int, int);
-void copy_t(int**, int**, int, int);
+int box[1002][1002];
+bool is_visit[1002][1002];
+
+void initi(stack<pair<int,int>> &s, stack<pair<int,int>> &t);
+void riped();
 
 int main(void) {
-	int save_zero, col, row, i, j, k, temp; scanf("%d %d", &col, &row); // M은 가로, N은 세로
-	zero = 0; save_zero = -1;
+	int i, j, k;
+	stack<pair<int,int>> even;
+	stack < pair<int, int>> odd;
+	fill(&box[0][0],& box[1001][1002], EMPTY);
 
-	int** table = new int*[row];
-	int** copy_table = new int* [row];
+	scanf("%d %d", &c, &r);
 
-	for (i = 0; i < row; i++) {
-		table[i] = new int[col];
-		copy_table[i] = new int[col];
-	}
-		
-	for (i = 0; i < row; i++) {
-		for (j = 0; j < col; j++) {
-			scanf("%d", &temp);
-			table[i][j] = temp;
-			if (temp == 0) zero++; // 박스에서 0인 공간의 개수 
-		}
-	}
-
-	/* 모든 토마토가 익어있는 상태 */
-	if (zero == 0) {
-		printf("0\n");
-		return 0;
-	}
-
-	copy_t(table, copy_table, row, col);
-
-	while(1){
-	for (i = 0; i < row; i++) {	
-		for (j = 0; j < col; j++) {
-			if (table[i][j] == 1) {
-				spread(copy_table, i, j, row, col);
+	for (i = 1; i <= r; i++) {
+		for (j = 1; j <= c; j++) {
+			scanf("%d", &box[i][j]);
+			if (box[i][j] == 1) {
+				odd.push(make_pair(i, j));
+				is_visit[i][j] = 1;
 			}
+				
+			else if (box[i][j] == 0)
+				zero++;
 		}
-	  }
-
-	copy_t(copy_table, table, row, col);
-	day++;
-
-	if (zero == 0)break;
-
-	if (save_zero == zero) {
-		day = -1;
-		break;
 	}
-	save_zero = zero;
+
+	while (!even.empty() || !odd.empty()) {
+
+		if (!odd.empty()) {
+			initi(odd, even);
+			day++;
+		}
+
+		if (!even.empty()) {
+			initi(even, odd);
+			day++ ;
+		}
 	}
-	printf("%d\n", day);
+
+	if (zero != 0)
+		printf("-1\n");
+	else 
+		printf("%d\n", day - 1);
+
 	return 0;
 }
 
-//void spread(int ** table, int row_, int col_, int row_lim, int col_lim) {
-void spread(int** table, int row_, int col_, int row_lim, int col_lim) {
-	int row, col; row = row_; col = col_;
-	int row_limit = row_lim, col_limit; col_limit = col_lim;
+void initi(stack<pair<int,int>> &s, stack<pair<int, int>>& t) {
+	int n_x, n_y;
+	while (!s.empty()) {
+		n_x = s.top().first;
+		n_y = s.top().second;
 
-	//table[row][col] = 1;
+		s.pop();
+		//up
+		if (is_visit[n_x - 1][n_y] == UNVISIT
+			&& box[n_x - 1][n_y] == UNRIPE) {
+			is_visit[n_x - 1][n_y] = VISIT;
+			box[n_x - 1][n_y] = RIPE;
+			t.push(make_pair(n_x - 1, n_y));
+			zero--;
+		}
 
-	// 아래에 있는 것
-	if ((row < row_limit-1) && table[row + 1][col] == 0) {
-		table[row + 1][col] = 2;
-		zero--;
-	}
+		//down
+		if (is_visit[n_x + 1][n_y] == UNVISIT
+			&& box[n_x + 1][n_y] == UNRIPE) {
+			is_visit[n_x + 1][n_y] = VISIT;
+			box[n_x + 1][n_y] = RIPE;
+			t.push(make_pair(n_x + 1, n_y));
+			zero--;
+		}
 
-	// 위에 있는 것
-	if ((row > 0) && table[row - 1][col] == 0) {
-		table[row - 1][col] = 2;
-		zero--;
-	}
+		//left
+		if (is_visit[n_x][n_y - 1] == UNVISIT 
+			&& box[n_x][n_y - 1] == UNRIPE) {
+			is_visit[n_x][n_y - 1] = VISIT;
+			box[n_x][n_y - 1] = RIPE;
+			t.push(make_pair(n_x, n_y - 1));
+			zero--;
+		}
 
-	// 왼쪽에 있는 것
-	if ((col > 0) && table[row][col - 1] == 0) {
-		zero--;
-		table[row][col - 1] = 2;
-	}
-		
-	// 오른쪽에 있는 것
-	if ((col < col_limit-1) && table[row][col + 1] == 0) {
-		table[row][col + 1] = 2;
-		zero--;
-	}
-	//spread(table, row, col + 1, row_limit, col_limit);
-}
-
-void copy_t(int** origin, int** target, int i_lim, int j_lim) {
-	int i, j;
-	for (i = 0; i < i_lim; i++) {
-		for (j = 0; j < j_lim; j++) {
-			if (origin[i][j] == 2) origin[i][j] = 1;
-			target[i][j] = origin[i][j];
+		//right
+		if (is_visit[n_x][n_y + 1] == UNVISIT 
+			&& box[n_x][n_y + 1] == UNRIPE) {
+			is_visit[n_x][n_y + 1] = VISIT;
+			box[n_x][n_y + 1] = RIPE;
+			t.push(make_pair(n_x, n_y + 1));
+			zero--;
 		}
 	}
 }
