@@ -1,4 +1,4 @@
-/* 집합의 표현 */
+ /* 집합의 표현 */
 
 //#include <iostream>
 #include <cstdio>
