@@ -13,29 +13,44 @@
 
 using namespace std;
 
-int base[5], player[10];
-vector<int> hitter[10];
-
-int score, out,inning;
+int hitter[51][10];
+int my_permutation[9] = { 2,3,4,5,6,7,8,9,1 };
+int total_inning, out, hitter_num;
+int base[4];
 
 int hits(int);
-void baseball_play(int, int, int);
-int return_num(int n, int);
+int inning_play(int inning);
 
 int main(void) {
 	ios_base::sync_with_stdio(false);
 	cin.tie(0); cout.tie(0);
 
-	int i, j, k, grade;
-	cin >> inning;
-	for (i = 1; i <= 9; i++) {
-		for (j = 1; j <= inning; j++) {
-			cin >> grade;
-			hitter[i].push_back(grade);
+	int i, j, k, grade, t_sum, score;
+	vector<int> a;
+	cin >> total_inning;
+	for (i = 1; i <= total_inning; i++) {
+		for (j = 1; j <= 9; j++) {
+			cin >> hitter[i][j];
 		}
 	}
+	score = 0;
 
-	baseball_play(1, 0, 0);
+	while (next_permutation(my_permutation, my_permutation + 8)) {
+		
+		k = my_permutation[3];
+		my_permutation[3] = my_permutation[8];
+		my_permutation[8] = k;
+
+		t_sum = 0; hitter_num = 0;
+		for (i = 1; i <= total_inning; i++) 
+			t_sum += inning_play(i);
+			
+		score = max(score, t_sum);
+
+		k = my_permutation[3];
+		my_permutation[3] = my_permutation[8];
+		my_permutation[8] = k;
+	}
 
 	cout << score << '\n';
 	return 0;
@@ -43,13 +58,12 @@ int main(void) {
 
 int hits(int baseball_hits) {
 	int i, t_score;
-
 	t_score = 0;
 	if (baseball_hits == OUT) {
 		out++;
 		return 0;
 	}
-		
+
 	switch (baseball_hits) {
 	case HITS: // 안타
 		if (base[3] == 1)
@@ -65,6 +79,7 @@ int hits(int baseball_hits) {
 			t_score++;
 		base[3] = base[1];
 		base[2] = 1;
+		base[1] = 0;
 		break;
 	case TRIPLE: // 3루타
 		for (i = 1; i <= 3; i++) {
@@ -73,71 +88,37 @@ int hits(int baseball_hits) {
 
 			base[i] = 0;
 		}
+		base[3] = 1;
 		break;
 	case HOMERUN: // 홈런
-		for (i = 1; i <= 4; i++) {
+		for (i = 1; i <= 3; i++) {
 			if (base[i] == 1)
 				t_score++;
 			base[i] = 0;
 		}
 		t_score++;
 		break;
-	default : 
+	default:
 		cout << "WTF" << endl;
 	}
+	
 	return t_score;
-
 }
 
-void baseball_play(int c_inning, int s_of_score, int n_of_player) {
-	int i, j, c_score, c_ins, c_player;
-	c_ins = c_inning;
-	c_player = n_of_player;
+int inning_play(int inning) {
+	int j, t_score;
+	t_score = 0;
 
-	if (inning < c_ins) {
-		score = max(s_of_score, score);
-		return;
-	}
-
-	if (n_of_player % 9 == 0) {
-		for (i = 1; i <= 9; i++) {
-			player[i] = false;
-		}
-	//	n_of_player = 0;
-	}
-
-	for (i = 1; i <= 9; i++) {
-		if (player[i] == true || (i == 1 && n_of_player % 9 != 3)) continue;
-
-		player[i] = true;
-		cout << i << " " << c_player << " " << out << " " << c_ins <<endl;
-		c_score = s_of_score + hits(hitter[i][return_num(c_player, 9)]);
+	while (1) {
+		t_score += hits(hitter[inning][my_permutation[hitter_num]]);
 		if (out == INNING_OUT) {
+			for (j = 1; j <= 3; j++)
+				base[j] = 0;
 			out = 0;
-			if (c_ins + 1 > inning) {
-				score = max(s_of_score, score);
-				return;
-			}
-				
-			baseball_play(c_ins + 1, c_score, c_player + 1);
+			hitter_num = (hitter_num + 1) % 9;
+			return t_score;
 		}
-		
-		else {
-			baseball_play(c_ins, c_score, c_player + 1);
-		}
-		
-		player[i] = false;
-	}
-}
 
-int return_num(int n, int divisor) {
-	if (n == 0)
-		return 0;
-
-	if (n % divisor == 0) {
-		return n / divisor - 1;
-	}
-	else {
-		return n / divisor;
+		hitter_num = (hitter_num + 1) % 9;
 	}
 }
