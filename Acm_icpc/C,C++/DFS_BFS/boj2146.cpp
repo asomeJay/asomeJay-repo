@@ -106,7 +106,7 @@ int bridge_distance(int start) {
 	int i, j, k, nr, nc, tr, tc, q_size;
 	queue<pair<int, int>> q;
 	int result = 0;
-	bool is_visit[MAX_MAP][MAX_MAP];
+	bool is_visit[MAX_MAP][MAX_MAP] = { 0, };
 
 	for (i = 1; i <= N; i++) {
 		for (j = 1; j <= N; j++) {
@@ -123,27 +123,17 @@ int bridge_distance(int start) {
 		q_size = q.size();
 
 		for (i = 0; i < q_size; i++) {
-			cout << q.front().first << " " << q.front().second << endl;
 			nr = q.front().first;
 			nc = q.front().second;
 			q.pop();
 
-			for (i = 0; i < 4; i++) {
-				tr = nr + dr[i];
-				tc = nc + dc[i];
+			for (j = 0; j < 4; j++) {
+				tr = nr + dr[j];
+				tc = nc + dc[j];
 
 				if (is_range(tr, tc) == IN_RANGE) {
 					if (map[tr][tc] != 0 && map[tr][tc] != start) {
-						/*
-						cout << endl;
-						for (int k = 1; k <= N; k++) {
-							for (int m = 1; m <= N; m++) {
-								cout << is_visit[k][m] << " ";
-							}
-							cout << endl;
-						}
-						*/
-						return result;
+						return result-1;
 					}
 
 					if (is_visit[tr][tc] == 0 && map[tr][tc] == 0) {
@@ -153,6 +143,5 @@ int bridge_distance(int start) {
 				}
 			}
 		}
-		
 	}
 }
