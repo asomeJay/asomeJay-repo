@@ -1,4 +1,4 @@
-/* ÇÁ·ºÅ» Æò¸é */
+k	/* ÇÁ·ºÅ» Æò¸é */
 
 #include <iostream>
 #include <cmath>
